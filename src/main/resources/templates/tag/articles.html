@@ -10,16 +10,16 @@
                         </header>
 
                         <div class="article-content">
-                            <p th:text="${article.summary}"></p>
+                            <p th:text="${article.getSummary()}"></p>
 
                             <small class="author" th:text="${article.author.fullName}"></small>
 
                             <p>
                                 <a class="list-tag" th:each="tag:${article.tags}" th:href="@{/tag/{name}(name=${tag.name})}" th:text="${tag.name}"></a>
                             </p>
-                        </div>
 
-                        <a class="list-create" th:href="@{/article/{id}(id=${article.id})}">Read more &raquo;</a>
+                            <a class="list-create" th:href="@{/article/{id}(id=${article.id})}">Read more &raquo;</a>
+                        </div>
                     </article>
                 </th:block>
             </div>
