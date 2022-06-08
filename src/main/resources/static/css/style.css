@@ -1,14 +1,8 @@
-/*@font-face {*/
-/*    font-family: 'Roboto', sans-serif;*/
-/*    font-family: 'Charis SIL', serif;*/
-/*    font-family: 'Dosis', sans-serif;*/
-/*}*/
 head, header {
     font-family: 'Roboto', sans-serif;
 }
 main {
-    /*font-family: 'Charis SIL', serif;*/
-    /*font-family: 'Dosis', sans-serif;*/
+    font-family: 'Dosis', sans-serif;
 }
 
 td{
@@ -21,14 +15,12 @@ th{
 .table-id{
     padding-right: 15px;
 }
-
 .listing{
     background-color: aliceblue;
     text-align: center;
     font-size: 110%;
     padding: 10px;
 }
-
 table.table{
     margin-right: auto;
     margin-left: auto;
@@ -71,7 +63,6 @@ h2 a, h1 a, .special{
 li.dropdown {
     display: inline-block;
 }
-
 .dropdown-content {
     display: none;
     position: absolute;
@@ -80,7 +71,6 @@ li.dropdown {
     box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
     z-index: 1;
 }
-
 .dropdown-content a {
     color: whitesmoke;
     padding: 12px 16px;
@@ -95,7 +85,6 @@ li.dropdown {
     margin-left: auto;
     margin-right:auto;
 }
-
 .form{
     padding-top: 50px;
     margin-bottom: 85px;
@@ -215,24 +204,13 @@ legend{
     transform: rotate(-180deg);
 }
 
-
-li a:hover, .dropdown:hover .dropbtn, .navbar-brand:hover {
-    color: #00ccff;
-    border-bottom-color: #00ccff;
-}
-.dropdown-content a:hover {
+li a:hover, .dropdown:hover .dropbtn, .navbar-brand:hover, .dropdown-content a:hover, .list-create:hover {
     color: #00ccff;
 }
 .dropdown:hover .dropdown-content {
     display: block;
 }
-h2 a:hover{
-    color: #003153;
-}
-.list-create:hover{
-    color: #00ccff;
-}
-.list-tag:hover{
+h2 a:hover, .list-tag:hover{
     color: #003153;
 }
 .cancel:hover, .list-delete:hover{
@@ -242,19 +220,8 @@ input[type=submit]:hover, .list-edit:hover {
     background-color: green;
 }
 input[type=submit]:hover, .list-edit:hover, .cancel:hover,
-.list-delete:hover, list-tag:hover, .create:hover, .list-create:hover {
+.list-delete:hover, .list-tag:hover, .create:hover, .list-create:hover {
     box-shadow: 0 4px 10px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
-}
-
-
-footer {
-    position: fixed;
-    left: 0;
-    bottom: 0;
-    width: 100%;
-    background-color: #003153;
-    color: whitesmoke;
-    text-align: center;
 }
 
 .navbar {
@@ -266,4 +233,13 @@ footer {
 .navbar .navbar-brand {
     float: left;
     text-decoration: none;
+}
+footer {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    background-color: #003153;
+    color: whitesmoke;
+    text-align: center;
 }
