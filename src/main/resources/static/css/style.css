@@ -1,0 +1,269 @@
+/*@font-face {*/
+/*    font-family: 'Roboto', sans-serif;*/
+/*    font-family: 'Charis SIL', serif;*/
+/*    font-family: 'Dosis', sans-serif;*/
+/*}*/
+head, header {
+    font-family: 'Roboto', sans-serif;
+}
+main {
+    /*font-family: 'Charis SIL', serif;*/
+    /*font-family: 'Dosis', sans-serif;*/
+}
+
+td{
+    padding-top: 8px;
+    padding-right: 8px;
+}
+th{
+    padding-right: 75px;
+}
+.table-id{
+    padding-right: 15px;
+}
+
+.listing{
+    background-color: aliceblue;
+    text-align: center;
+    font-size: 110%;
+    padding: 10px;
+}
+
+table.table{
+    margin-right: auto;
+    margin-left: auto;
+    font-size: 110%;
+    text-align: left;
+}
+
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #003153;
+}
+
+li {
+    float: right;
+}
+.navbar-brand{
+    display: inline-block;
+    float: left;
+    background-color: #003153;
+    text-decoration: none;
+    color: whitesmoke;
+}
+header a, li a, .dropbtn {
+    display: inline-block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+h2 a, h1 a, .special{
+    color: #00ccff;
+    text-decoration: none;
+
+}
+
+li.dropdown {
+    display: inline-block;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    color: #07073b;
+    min-width: 80px;
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+    z-index: 1;
+}
+
+.dropdown-content a {
+    color: whitesmoke;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    text-align: left;
+}
+
+.log-form{
+    width: 25%;
+    padding-top: 50px;
+    margin-left: auto;
+    margin-right:auto;
+}
+
+.form{
+    padding-top: 50px;
+    margin-bottom: 85px;
+}
+
+input[type=text],input[type=email], input[type=password], select, textarea {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    border: 1px solid #003153;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+.list-edit, .list-delete, .list-create{
+    background-color: #003153;
+    color: white;
+    padding: 1px 8px;
+    margin: 5px 0;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+input[type=submit], .cancel, .list-create, .list-tag{
+    background-color: #003153;
+    color: white;
+    padding: 12px 20px;
+    margin: 8px 0;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+.list-create {
+    color: white;
+    padding: 2px 6px;
+    background-color: #003153;
+}
+.list-tag{
+    background-color: #00ccff;
+    color: aliceblue;
+    margin-right: 5px;
+    text-decoration: none;
+    padding: 2px 6px;
+}
+.cancel{
+    width: 40%;
+    float: left;
+    text-decoration: none;
+    text-align: center;
+}
+.sub-cre{
+    width: 45%;
+    float: right;
+}
+.list-article{
+    background-color: aliceblue;
+    padding-left: 15px;
+    padding-bottom: 10px;
+    margin-right: auto;
+    margin-left: auto;
+}
+article{
+    padding: 10px;
+    margin: 10px;
+    margin-bottom: 20px;
+    border: 1px outset #003153;
+    padding-top: 0;
+    padding-bottom: 15px;
+}
+.article{
+    padding: 5px;
+    margin-top: 15px;
+    margin-right: 20px;
+}
+.article-content{
+    margin-left: 8px;
+}
+.column{
+    padding: 12px;
+    margin-right: 10px;
+    margin-bottom: 15px;
+}
+body main{
+    padding-left: 10px;
+    padding-right: 10px;
+}
+fieldset {
+    background-color: aliceblue;
+    border: aliceblue;
+}
+legend{
+    float: left;
+    font-size: 18px;
+}
+.cat-order{
+    float: left;
+    width: 15%;
+}
+
+.profile{
+    padding-bottom: 4px;
+}
+.prof{
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.arrow{
+    display: inline-block;
+    width: 0; height: 1px;
+    margin-left: 1px;
+    border-left: 5px solid transparent;
+    border-right: 5px solid transparent;
+    border-bottom: 5px solid white;
+    transform: rotate(-180deg);
+}
+
+
+li a:hover, .dropdown:hover .dropbtn, .navbar-brand:hover {
+    color: #00ccff;
+    border-bottom-color: #00ccff;
+}
+.dropdown-content a:hover {
+    color: #00ccff;
+}
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+h2 a:hover{
+    color: #003153;
+}
+.list-create:hover{
+    color: #00ccff;
+}
+.list-tag:hover{
+    color: #003153;
+}
+.cancel:hover, .list-delete:hover{
+    background-color: #CC0000;
+}
+input[type=submit]:hover, .list-edit:hover {
+    background-color: green;
+}
+input[type=submit]:hover, .list-edit:hover, .cancel:hover,
+.list-delete:hover, list-tag:hover, .create:hover, .list-create:hover {
+    box-shadow: 0 4px 10px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+}
+
+
+footer {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    background-color: #003153;
+    color: whitesmoke;
+    text-align: center;
+}
+
+.navbar {
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 100%;
+}
+.navbar .navbar-brand {
+    float: left;
+    text-decoration: none;
+}

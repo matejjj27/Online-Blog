@@ -1,0 +1,20 @@
+<main>
+    <div class="form"><br>
+        <fieldset>
+            <legend>User Info</legend>
+            <div class="log-form">
+                <div class="profile">
+                    <label for="email">Email: </label>
+                    <span id="email" th:text="${user.email}"></span>
+                </div>
+
+                <div class="profile">
+                    <label for="fullname">Name: </label>
+                    <span id="fullname" th:text="${user.fullName}"></span>
+                </div>
+
+                <a class="list-edit prof" th:href="@{/edit/{id}(id=${user.id})}">Edit</a>
+            </div>
+        </fieldset>
+    </div>
+</main>

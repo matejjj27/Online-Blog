@@ -1,0 +1,19 @@
+<main>
+    <div class="form"><br>
+        <form th:action="@{/article/delete/{id}(id=${article.id})}" method="POST">
+            <fieldset>
+                <legend>Delete Article</legend>
+                <div class="log-form">
+                    <label for="article_title">Title</label>
+                    <input type="text" class="form-control" id="article_title" placeholder="Post Title" name="title" th:value="${article.title}" disabled="disabled"/>
+
+                    <label for="article_content">Content</label>
+                    <textarea class="form-control" rows="6" id="article_content" name="content" th:field="${article.content}" disabled="disabled"></textarea>
+
+                    <a class="cancel" th:href="@{/article/{id}(id = ${article.id})}">Cancel</a>
+                    <input class="sub-cre" type="submit" value="Delete"/>
+                </div>
+            </fieldset>
+        </form>
+    </div>
+</main>

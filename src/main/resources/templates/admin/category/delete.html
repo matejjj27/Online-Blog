@@ -1,0 +1,18 @@
+<main>
+    <div class="form">
+        <form th:action="@{/admin/categories/delete/{id}(id=${category.id})}" method="POST"><br>
+            <fieldset>
+                <legend>Delete Category -
+                    <strong th:text="${category.name}"></strong></legend>
+                <div class="log-form">
+                    <label for="category_name">Category Name</label>
+                    <input type="text" id="category_name" placeholder="Category Name" name="name" th:value="${category.name}" disabled="disabled"/>
+
+                    <a class="cancel" th:href="@{/admin/categories/}">Cancel</a>
+
+                    <input type="submit" class="sub-cre" value="Delete"/>
+                </div>
+            </fieldset>
+        </form>
+    </div>
+</main>

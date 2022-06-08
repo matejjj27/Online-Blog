@@ -1,0 +1,27 @@
+<main>
+  <div class="form">
+      <form th:action="@{/article/create}" method="POST"><br>
+          <fieldset>
+              <legend>New Article</legend>
+              <div class="log-form">
+                  <label for="article_title">Article Title</label>
+                  <input type="text" id="article_title" placeholder="Article Title" name="title"/>
+
+                  <label class="col-sm-4 control-label" for="article_content">Content</label>
+                  <textarea class="form-control" id="article_content" placeholder="Article Content" name="content"></textarea>
+
+                  <label for="article_category">Category</label>
+                  <select id="article_category" name="categoryId">
+                  <option th:each="category : ${categories}" th:value="${category.id}" th:text="${category.name}"></option>
+                  </select>
+
+                  <label for="article_tags">Tags</label>
+                  <input type="text" id="article_tags" placeholder="Tags" name="tagString"/>
+
+                  <input class="sub-cre" type="submit" value="Submit"/>
+                  <a class="cancel" th:href="@{/}">Cancel</a>
+              </div>
+          </fieldset>
+      </form>
+  </div>
+</main>

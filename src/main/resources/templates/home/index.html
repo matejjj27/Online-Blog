@@ -1,0 +1,11 @@
+<main>
+    <div class="form">
+        <div class="special" th:each="category : ${categories}">
+            <div class="cat-order">
+                <h2>
+                    <a th:href="@{/category/{id}(id=${category.id})}" th:text="${category.name + ' (' + #sets.size(category.articles) + ')'}"></a>
+                </h2>
+            </div>
+        </div>
+    </div>
+</main>

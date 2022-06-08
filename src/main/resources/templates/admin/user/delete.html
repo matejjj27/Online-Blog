@@ -1,0 +1,21 @@
+<main>
+  <div class="form">
+      <form th:action="@{/admin/users/delete/{id}(id=${user.id})}" method="post"><br>
+          <fieldset>
+              <legend>Delete User -
+                  <strong th:text="${user.fullName}"></strong>
+              </legend>
+              <div class="log-form">
+                  <label for="user_email">Email</label>
+                  <input type="email" id="user_email" placeholder="Email" name="email" th:value="${user.email}" disabled="disabled"/>
+
+                  <label for="user_fullname">Full Name</label>
+                  <input type="text" id="user_fullname" placeholder="Full Name" name="fullName" th:value="${user.fullName}" disabled="disabled"/>
+
+                  <a class="cancel" th:href="@{/admin/users/}">Cancel</a>
+                  <input value="Delete" type="submit" class="sub-cre"/>
+              </div>
+          </fieldset>
+      </form>
+  </div>
+</main>
