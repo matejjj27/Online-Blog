@@ -11,10 +11,10 @@ HOW TO SETUP PROJECT:
 -
    Open The Project with 'Intellij IDEA' wait for all the dependencies to load and run it 
    link for Intellij IDEA download: https://www.jetbrains.com/idea/download/?fromIDE=#section=windows
-   
+-
    Check 'HeidiSQL' to see if the tables have created
 -
-   In the table roles click on the '+' button and Create a role with name 'ROLE_USER' and another with name 'ROLE_ADMIN'
+   In the table 'roles' click on the '+' button and create a role with name 'ROLE_USER' and another with name 'ROLE_ADMIN'
 -
    Run the Application again and open this link on your browser 'localhost:8080'
 -
