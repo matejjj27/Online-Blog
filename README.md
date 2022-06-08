@@ -1,5 +1,3 @@
-Online-Blog
-
 HOW TO SETUP PROJECT:
   
 - 
