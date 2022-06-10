@@ -18,6 +18,7 @@ import softuni.blog.blog.repository.ArticleRepository;
 import softuni.blog.blog.repository.RoleRepository;
 import softuni.blog.blog.repository.UserRepository;
 
+import javax.swing.*;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
@@ -91,6 +92,8 @@ public class AdminUserController {
 
         user.setRoles(roles);
         this.userRepository.saveAndFlush(user);
+
+
 
         return "redirect:/admin/users/";
     }

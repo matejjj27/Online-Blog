@@ -13,6 +13,8 @@ public class UserBindingModel {
     @NotNull
     private String confirmPassword;
 
+    private String photo;
+
     public String getEmail() {
         return email;
     }

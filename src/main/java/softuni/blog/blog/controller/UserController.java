@@ -1,6 +1,8 @@
 package softuni.blog.blog.controller;
 
 import static javax.swing.JOptionPane.showMessageDialog;
+
+import org.apache.tomcat.util.http.fileupload.FileUpload;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.core.Authentication;
@@ -12,6 +14,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
+import softuni.blog.blog.Utility.FileUploadUtil;
 import softuni.blog.blog.bindingModel.UserBindingModel;
 import softuni.blog.blog.bindingModel.UserEditBindingModel;
 import softuni.blog.blog.entity.Role;
@@ -21,6 +25,7 @@ import softuni.blog.blog.repository.UserRepository;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import java.io.IOException;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
@@ -42,7 +47,7 @@ public class UserController {
     }
 
     @PostMapping("/register")
-    public String registerProcess(UserBindingModel userBindingModel) {
+    public String registerProcess(UserBindingModel userBindingModel, @RequestParam("image")MultipartFile multipartFile) throws IOException {
 
         if(!userBindingModel.getPassword().equals(userBindingModel.getConfirmPassword())){
             return "redirect:/register";
@@ -59,7 +64,13 @@ public class UserController {
         Role userRole = this.roleRepository.findByName("ROLE_USER");
         user.addRole(userRole);
 
+        String fileName = StringUtils.cleanPath(multipartFile.getOriginalFilename());
+        user.setPhoto(fileName);
+
         this.userRepository.saveAndFlush(user);
+
+        String uploadDir = "user-photos/" + user.getId();
+        FileUploadUtil.saveFile(uploadDir, fileName, multipartFile);
 
         return "redirect:/login";
     }

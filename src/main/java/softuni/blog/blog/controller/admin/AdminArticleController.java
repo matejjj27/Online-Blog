@@ -23,7 +23,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 @Controller
-@RequestMapping("/admin/article")
+@RequestMapping("/admin/articles")
 public class AdminArticleController {
 
     @Autowired
@@ -32,6 +32,8 @@ public class AdminArticleController {
     CategoryRepository categoryRepository;
     @Autowired
     TagRepository tagRepository;
+    @Autowired
+    UserRepository userRepository;
 
     @GetMapping("/")
     public String listArticles(Model model){
@@ -43,6 +45,4 @@ public class AdminArticleController {
 
         return "base-layout";
     }
-
-
 }
