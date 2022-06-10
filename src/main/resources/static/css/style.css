@@ -207,7 +207,7 @@ legend{
 }
 
 .profile{
-    padding-bottom: 4px;
+    padding-bottom: 15px;
 }
 .prof{
     margin-left: auto;
@@ -223,6 +223,11 @@ legend{
     border-bottom: 5px solid white;
     transform: rotate(-180deg);
 }
+
+.label, .label img{
+    display: block;
+}
+
 
 li a:hover, .dropdown:hover .dropbtn, .navbar-brand:hover, .dropdown-content a:hover, .list-create:hover {
     color: #00ccff;

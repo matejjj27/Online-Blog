@@ -25,3 +25,37 @@
         </div>
     </div>
 </main>
+
+<!--<main>-->
+<!--    <div class="form"><br>-->
+<!--        <div class="listing">-->
+<!--            <h2>All Articles - -->
+<!--                <a class="list-create" th:href="@{/article/create}">Create New</a>-->
+<!--            </h2>-->
+<!--            <table class="table">-->
+<!--                <thead>-->
+<!--                <tr>-->
+<!--                    <th class="table-id">#</th>-->
+<!--                    <th>Title</th>-->
+<!--                    <th>Category</th>-->
+<!--                    <th>Tags</th>-->
+<!--                    <th>Actions</th>-->
+<!--                </tr>-->
+<!--                </thead>-->
+
+<!--                <tbody>-->
+<!--                    <th:block th:each="article : ${articles}">-->
+<!--                        <td th:text="${article.id}"></td>-->
+<!--                        <td th:text="${article.title}"></td>-->
+<!--                        <td th:text="${article.category.name}"></td>-->
+<!--                        <td th:each="tag:${article.tags}" th:text="${tag.name}"></td>-->
+<!--                        <td>-->
+<!--                            <a class="list-edit" th:href="@{/articles/edit/{id}(id=${article.id})}">Edit</a>-->
+<!--                            <a class="list-delete" th:href="@{/articles/delete/{id}(id=${article.id})}">Delete</a>-->
+<!--                        </td>-->
+<!--                    </th:block>-->
+<!--                </tbody>-->
+<!--            </table>-->
+<!--        </div>-->
+<!--    </div>-->
+<!--</main>-->

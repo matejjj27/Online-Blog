@@ -16,6 +16,8 @@ public class User {
     private String email;
     private String fullName;
     private String password;
+    private String photo;
+
 
     public User(String email, String fullName, String password) {
         this.email = email;
@@ -63,6 +65,11 @@ public class User {
         this.password = password;
     }
 
+    @Column(name = "photo", length = 64)
+    public String getPhoto() { return photo; }
+
+    public void setPhoto(String photo) { this.photo = photo; }
+
     public User() { }
 
     private Set<Role> roles;
@@ -93,10 +100,15 @@ public class User {
                 .stream()
                 .anyMatch(role -> role.getName().equals("ROLE_ADMIN"));
     }
-
     @Transient
     public boolean isAuthor(Article article) {
         return Objects.equals(this.getId(),
                 article.getAuthor().getId());
+    }
+    @Transient
+    public String getPhotosImagePath() {
+        if (photo == null || id == null) return null;
+
+        return "/user-photos/" + id + "/" + photo;
     }
 }

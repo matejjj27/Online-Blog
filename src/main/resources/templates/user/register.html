@@ -1,6 +1,6 @@
 <main xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
     <div class="form">
-        <form th:action="@{/register}" method="post"><br>
+        <form th:action="@{/register}" method="post" enctype="multipart/form-data"><br>
             <fieldset>
                 <legend>Register</legend>
                 <div class="log-form">
@@ -17,6 +17,9 @@
                     <label for="user_password_second">Confirm Password</label>
                     <input type="password" class="form-control" id="user_password_second" placeholder="Password"
                            name="confirmPassword" required="required"/>
+
+                    <label for="photo">Photo: </label>
+                    <input id="photo" th:type="file" name="image" accept="image/jpeg, image/png, image/jpg">
 
                     <input class="sub-cre" type="submit" value="Register"/>
                     <a class="cancel" th:href="@{/}">Cancel</a>
