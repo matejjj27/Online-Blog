@@ -79,6 +79,26 @@ li.dropdown {
     text-align: left;
 }
 
+.navbar {
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 100%;
+}
+.navbar .navbar-brand {
+    float: left;
+    text-decoration: none;
+}
+footer {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    background-color: #003153;
+    color: whitesmoke;
+    text-align: center;
+}
+
 .log-form{
     width: 25%;
     padding-top: 50px;
@@ -222,24 +242,4 @@ input[type=submit]:hover, .list-edit:hover {
 input[type=submit]:hover, .list-edit:hover, .cancel:hover,
 .list-delete:hover, .list-tag:hover, .create:hover, .list-create:hover {
     box-shadow: 0 4px 10px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
-}
-
-.navbar {
-    position: fixed;
-    top: 0;
-    right: 0;
-    width: 100%;
-}
-.navbar .navbar-brand {
-    float: left;
-    text-decoration: none;
-}
-footer {
-    position: fixed;
-    left: 0;
-    bottom: 0;
-    width: 100%;
-    background-color: #003153;
-    color: whitesmoke;
-    text-align: center;
 }

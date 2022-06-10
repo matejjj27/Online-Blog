@@ -47,7 +47,7 @@ public class AdminUserController {
     public String edit(@PathVariable Integer id, Model model){
 
         if(!this.userRepository.existsById(id)) {
-            return "redirect:/admin/users/";
+            return "redirect:/admin/user/";
         }
 
         User user = this.userRepository.findByid(id);

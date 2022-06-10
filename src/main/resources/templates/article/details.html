@@ -19,6 +19,7 @@
                             <a class="list-edit" th:href="@{/article/edit/{id}(id = ${article.id})}">Edit</a>
                             <a class="list-delete" th:href="@{/article/delete/{id}(id = ${article.id})}">Delete</a>
                         </th:block>
+                        <a class="list-create" sec:authorize="hasRole('ADMIN')" th:href="@{/admin/article/}">All Articles</a>
                     </div>
                 </div>
             </div>

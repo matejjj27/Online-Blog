@@ -57,6 +57,6 @@ public class Article {
 
     @Transient
     public String getSummary(){
-        return this.getContent().substring(0, 800) + "...";
+        return this.getContent().substring(0, 600) + "...";
     }
 }
