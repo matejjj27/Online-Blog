@@ -18,6 +18,12 @@
                     <input type="password" class="form-control" id="user_password_second" placeholder="Password"
                            name="confirmPassword" required="required"/>
 
+                    <div class="profile">
+                        <input th:type="radio" name="gender" id="male" th:text="Male" value="M">
+                        <input th:type="radio" name="gender" id="female" th:text="Female" value="F">
+                        <input th:type="radio" name="gender" id="unknown" th:text="Unknown" value="U"><br>
+                    </div>
+
                     <label for="photo">Photo: </label>
                     <input id="photo" th:type="file" name="image" accept="image/jpeg, image/png, image/jpg">
 

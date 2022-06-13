@@ -6,10 +6,9 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.util.StringUtils;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
+import softuni.blog.blog.Utility.FileUploadUtil;
 import softuni.blog.blog.bindingModel.UserEditBindingModel;
 import softuni.blog.blog.entity.Article;
 import softuni.blog.blog.entity.Role;
@@ -19,6 +18,7 @@ import softuni.blog.blog.repository.RoleRepository;
 import softuni.blog.blog.repository.UserRepository;
 
 import javax.swing.*;
+import java.io.IOException;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
@@ -62,8 +62,7 @@ public class AdminUserController {
     }
 
     @PostMapping("/edit/{id}")
-    public String editProcess(@PathVariable Integer id,
-                              UserEditBindingModel userBindingModel){
+    public String editProcess(@PathVariable Integer id, UserEditBindingModel userBindingModel) {
 
         if(!this.userRepository.existsById(id)){
             return "redirect:/admin/users/";
@@ -81,6 +80,10 @@ public class AdminUserController {
             }
         }
 
+        if(!StringUtils.isEmpty(userBindingModel.getGender())){
+            user.setGender(userBindingModel.getGender());
+        }
+
         user.setFullName(userBindingModel.getFullName());
         user.setEmail(userBindingModel.getEmail());
 
@@ -91,9 +94,8 @@ public class AdminUserController {
         }
 
         user.setRoles(roles);
+
         this.userRepository.saveAndFlush(user);
-
-
 
         return "redirect:/admin/users/";
     }

@@ -1,5 +1,7 @@
 package softuni.blog.blog.entity;
 
+import org.springframework.util.StringUtils;
+
 import javax.persistence.Entity;
 import javax.persistence.Table;
 
@@ -17,12 +19,14 @@ public class User {
     private String fullName;
     private String password;
     private String photo;
+    private String gender;
 
 
-    public User(String email, String fullName, String password) {
+    public User(String email, String fullName, String password, String gender) {
         this.email = email;
         this.password = password;
         this.fullName = fullName;
+        this.gender = gender;
 
         this.roles = new HashSet<>();
         this.articles = new HashSet<>();
@@ -33,7 +37,6 @@ public class User {
     public Integer getId() {
         return id;
     }
-
     public void setId(Integer id) {
         this.id = id;
     }
@@ -42,7 +45,6 @@ public class User {
     public String getEmail() {
         return email;
     }
-
     public void setEmail(String email) {
         this.email = email;
     }
@@ -51,7 +53,6 @@ public class User {
     public String getFullName() {
         return fullName;
     }
-
     public void setFullName(String fullName) {
         this.fullName = fullName;
     }
@@ -60,15 +61,19 @@ public class User {
     public String getPassword() {
         return password;
     }
-
     public void setPassword(String password) {
         this.password = password;
     }
 
     @Column(name = "photo", length = 64)
     public String getPhoto() { return photo; }
-
     public void setPhoto(String photo) { this.photo = photo; }
+
+    @Column(name = "gender")
+    public String getGender() {
+        return gender;
+    }
+    public void setGender(String gender) { this.gender = gender; }
 
     public User() { }
 
@@ -107,7 +112,15 @@ public class User {
     }
     @Transient
     public String getPhotosImagePath() {
-        if (photo == null || id == null) return null;
+        String g = "F";
+        if (photo == null || id == null){
+            if (!gender.equals(g)) {
+                return "/user-photos/default/male.jpg";
+            }
+            else if (gender.equals(g)){
+                return "/user-photos/default/female.jpg";
+            }
+        }
 
         return "/user-photos/" + id + "/" + photo;
     }

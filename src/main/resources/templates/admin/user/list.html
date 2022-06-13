@@ -10,6 +10,7 @@
                     <th class="table-id">#</th>
                     <th>Full Name</th>
                     <th>Email</th>
+                    <th>Gender</th>
                     <th>Actions</th>
                 </tr>
                 </thead>
@@ -20,6 +21,13 @@
                             <td th:text="${user.id}"></td>
                             <td th:text="${user.fullName}"></td>
                             <td th:text="${user.email}"></td>
+                            <td>
+                                <span id="gender" th:switch="${user.gender}">
+                                    <a th:case="M">Male</a>
+                                    <a th:case="F">Female</a>
+                                    <a th:case="U">Unknown</a>
+                                </span>
+                            </td>
                             <td>
                                 <a class="list-edit" th:href="@{/admin/users/edit/{id}(id=${user.id})}">Edit</a>
                                 <a class="list-delete" th:href="@{/admin/users/delete/{id}(id=${user.id})}">Delete</a>
