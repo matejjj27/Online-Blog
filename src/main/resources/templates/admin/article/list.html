@@ -12,10 +12,13 @@
                         <div class="article-content">
                             <p th:text="${article.getSummary()}"></p>
 
+                            <img class="prof-img" id="img1" th:src="${article.author.photosImagePath}" height="1.5%" width="1.5%" style="display: block"/>
                             <small th:text="${article.author.fullName}"></small>
+
                             <p>
                                 <a class="list-tag" th:each="tag:${article.tags}" th:href="@{/tag/{name}(name=${tag.name})}" th:text="${tag.name}"></a>
                             </p>
+
                             <a class="list-edit" th:href="@{/article/edit/{id}(id = ${article.id})}">Edit</a>
                             <a class="list-delete" th:href="@{/article/delete/{id}(id = ${article.id})}">Delete</a>
                         </div>

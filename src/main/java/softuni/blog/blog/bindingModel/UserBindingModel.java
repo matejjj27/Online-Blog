@@ -2,6 +2,8 @@ package softuni.blog.blog.bindingModel;
 
 import groovyjarjarantlr4.v4.runtime.misc.NotNull;
 
+import javax.swing.*;
+
 public class UserBindingModel {
 
     @NotNull
@@ -12,8 +14,9 @@ public class UserBindingModel {
     private String password;
     @NotNull
     private String confirmPassword;
-
     private String photo;
+    @NotNull
+    private String gender;
 
     public String getEmail() {
         return email;
@@ -42,4 +45,10 @@ public class UserBindingModel {
     public void setConfirmPassword(String confirmPassword) {
         this.confirmPassword = confirmPassword;
     }
+
+    public String getPhoto() { return photo; }
+    public void setPhoto(String photo) { this.photo = photo; }
+
+    public String getGender() { return gender; }
+    public void setGender(String gender) { this.gender = gender; }
 }

@@ -6,6 +6,13 @@
                     <strong th:text="${user.fullName}"></strong>
                 </legend>
                 <div class="log-form">
+                    <div class="profile">
+                        <label class="label img" for="img">Profile Photo: </label>
+                        <img class="prof-img" id="img" th:src="${user.photosImagePath}" height="25%" width="25%"/>
+                    </div>
+
+                    <input class="profile" id="photo" th:type="file" name="image" accept="image/jpeg, image/png, image/jpg"><br>
+
                     <label for="user_email">Email</label>
                     <input type="email" id="user_email" placeholder="Email" name="email"
                            required="required" th:value="${user.email}"/>
@@ -21,6 +28,12 @@
                     <label for="user_password_second">Confirm Password</label>
                     <input type="password" id="user_password_second" placeholder="Password"
                            name="confirmPassword"/>
+
+                    <div class="profile">
+                        <input th:type="radio" name="gender" id="male" th:text="Male" value="M">
+                        <input th:type="radio" name="gender" id="female" th:text="Female" value="F">
+                        <input th:type="radio" name="gender" id="unknown" th:text="Unknown" value="U"><br>
+                    </div>
 
                     <a class="cancel" th:href="@{/profile}">Cancel</a>
                     <input value="Edit" type="submit" class="sub-cre"/>

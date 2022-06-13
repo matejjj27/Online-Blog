@@ -1,8 +1,5 @@
 package softuni.blog.blog.controller;
 
-import static javax.swing.JOptionPane.showMessageDialog;
-
-import org.apache.tomcat.util.http.fileupload.FileUpload;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.core.Authentication;
@@ -26,9 +23,7 @@ import softuni.blog.blog.repository.UserRepository;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
-import java.util.HashSet;
 import java.util.List;
-import java.util.Set;
 
 
 @Controller
@@ -47,7 +42,8 @@ public class UserController {
     }
 
     @PostMapping("/register")
-    public String registerProcess(UserBindingModel userBindingModel, @RequestParam("image")MultipartFile multipartFile) throws IOException {
+    public String registerProcess(UserBindingModel userBindingModel,
+                                  @RequestParam("image")MultipartFile multipartFile) throws IOException {
 
         if(!userBindingModel.getPassword().equals(userBindingModel.getConfirmPassword())){
             return "redirect:/register";
@@ -58,19 +54,32 @@ public class UserController {
         User user = new User(
                 userBindingModel.getEmail(),
                 userBindingModel.getFullName(),
-                bCryptPasswordEncoder.encode(userBindingModel.getPassword())
+                bCryptPasswordEncoder.encode(userBindingModel.getPassword()),
+                userBindingModel.getGender()
         );
 
         Role userRole = this.roleRepository.findByName("ROLE_USER");
         user.addRole(userRole);
 
         String fileName = StringUtils.cleanPath(multipartFile.getOriginalFilename());
-        user.setPhoto(fileName);
+        String f = "";
 
-        this.userRepository.saveAndFlush(user);
+        if(fileName.equals(f)){
 
-        String uploadDir = "user-photos/" + user.getId();
-        FileUploadUtil.saveFile(uploadDir, fileName, multipartFile);
+            user.setPhoto(null);
+
+            this.userRepository.saveAndFlush(user);
+
+            return "redirect:/login";
+        }
+        else {
+            user.setPhoto(fileName);
+
+            this.userRepository.saveAndFlush(user);
+
+            String uploadDir = "user-photos/" + user.getId();
+            FileUploadUtil.saveFile(uploadDir, fileName, multipartFile);
+        }
 
         return "redirect:/login";
     }
@@ -146,6 +155,10 @@ public class UserController {
 
                 user.setPassword(bCryptPasswordEncoder.encode(userBindingModel.getPassword()));
             }
+        }
+
+        if(!StringUtils.isEmpty(userBindingModel.getGender())){
+            user.setGender(userBindingModel.getGender());
         }
 
         user.setFullName(userBindingModel.getFullName());

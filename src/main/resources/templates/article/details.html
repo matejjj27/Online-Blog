@@ -10,6 +10,8 @@
                     <div class="article-content">
                         <p th:text="${article.content}"> </p>
 
+                        <img class="prof-img" id="img1" th:src="${article.author.photosImagePath}" height="1.5%" width="1.5%" style="display: block; margin-bottom: 1px"/>
+
                         <p th:text="${article.author.fullName}"></p>
                         <p>
                             <a class="list-tag" th:each="tag:${article.tags}" th:href="@{/tag/{name}(name=${tag.name})}" th:text="${tag.name}"></a>
