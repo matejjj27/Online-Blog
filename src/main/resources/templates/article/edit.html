@@ -10,8 +10,12 @@
                     <label for="article_content">Content</label>
                     <textarea rows="6" id="article_content" name="content" th:field="${article.content}"></textarea>
 
-                    <label for="article_category">Category</label>
+                    <label for="author">Author</label>
+                    <select id="author" name="author">
+                        <option th:each="user : ${users}" th:value="${user.id}" th:text="${user.fullName}"  th:selected="${user.id == article.author.id}"></option>
+                    </select>
 
+                    <label for="article_category">Category</label>
                     <select id="article_category" name="categoryId">
                         <option th:each="category : ${categories}" th:value="${category.id}" th:text="${category.name}"  th:selected="${category.id == article.category.id}"></option>
                     </select>

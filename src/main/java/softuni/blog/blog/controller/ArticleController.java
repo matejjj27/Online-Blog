@@ -112,6 +112,7 @@ public class ArticleController {
         }
 
         List<Category> categories = this.categoryRepository.findAll();
+        List<User> users = this.userRepository.findAll();
 
         String tagString = article.getTags().stream()
                 .map(Tag::getName)
@@ -121,6 +122,7 @@ public class ArticleController {
         model.addAttribute("article", article);
         model.addAttribute("categories", categories);
         model.addAttribute("tags", tagString);
+        model.addAttribute("users", users);
 
         return "base-layout";
     }
@@ -145,6 +147,7 @@ public class ArticleController {
         article.setTitle(articleBindingModel.getTitle());
         article.setCategory(category);
         article.setTags(tags);
+        article.setAuthor(articleBindingModel.getAuthor());
 
         this.articleRepository.saveAndFlush(article);
 
