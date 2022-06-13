@@ -1,5 +1,6 @@
 package softuni.blog.blog.entity;
 
+import groovyjarjarantlr4.v4.runtime.misc.NotNull;
 import org.springframework.util.StringUtils;
 
 import javax.persistence.Entity;
@@ -70,9 +71,7 @@ public class User {
     public void setPhoto(String photo) { this.photo = photo; }
 
     @Column(name = "gender")
-    public String getGender() {
-        return gender;
-    }
+    public String getGender() { return gender; }
     public void setGender(String gender) { this.gender = gender; }
 
     public User() { }
@@ -113,12 +112,16 @@ public class User {
     @Transient
     public String getPhotosImagePath() {
         String g = "F";
+        String g2 = "M";
         if (photo == null || id == null){
-            if (!gender.equals(g)) {
+            if (gender.equals(g2)) {
                 return "/user-photos/default/male.jpg";
             }
             else if (gender.equals(g)){
                 return "/user-photos/default/female.jpg";
+            }
+            else if (!gender.equals(g) && !gender.equals(g2)){
+                return "/user-photos/default/male.jpg";
             }
         }
 
