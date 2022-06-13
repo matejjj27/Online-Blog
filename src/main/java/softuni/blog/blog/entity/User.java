@@ -111,9 +111,11 @@ public class User {
     }
     @Transient
     public String getPhotosImagePath() {
-        String g = "F";
-        String g2 = "M";
+
         if (photo == null || id == null){
+            String g = "F";
+            String g2 = "M";
+
             if (gender.equals(g2)) {
                 return "/user-photos/default/male.jpg";
             }
