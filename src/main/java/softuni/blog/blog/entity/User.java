@@ -121,7 +121,7 @@ public class User {
                 return "/user-photos/default/female.jpg";
             }
             else if (!gender.equals(g) && !gender.equals(g2)){
-                return "/user-photos/default/male.jpg";
+                return "/user-photos/default/unknown.jpg";
             }
         }
 
