@@ -139,7 +139,8 @@ public class UserController {
     }
 
     @PostMapping("/edit/{id}")
-    public String editProcess(@PathVariable Integer id, UserEditBindingModel userBindingModel){
+    public String editProcess(@PathVariable Integer id, UserEditBindingModel userBindingModel,
+                              @RequestParam("image") MultipartFile multipartFile) throws IOException{
 
         if(!this.userRepository.existsById(id)){
             return "redirect:/";
@@ -163,6 +164,18 @@ public class UserController {
 
         user.setFullName(userBindingModel.getFullName());
         user.setEmail(userBindingModel.getEmail());
+
+        String fileName = StringUtils.cleanPath(multipartFile.getOriginalFilename());
+        String f = "";
+
+        if(!fileName.equals(f)) {
+            user.setPhoto(fileName);
+
+            this.userRepository.saveAndFlush(user);
+
+            String uploadDir = "user-photos/" + user.getId();
+            FileUploadUtil.saveFile(uploadDir, fileName, multipartFile);
+        }
 
         this.userRepository.saveAndFlush(user);
 

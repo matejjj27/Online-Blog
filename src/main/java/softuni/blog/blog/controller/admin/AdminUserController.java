@@ -62,7 +62,8 @@ public class AdminUserController {
     }
 
     @PostMapping("/edit/{id}")
-    public String editProcess(@PathVariable Integer id, UserEditBindingModel userBindingModel) {
+    public String editProcess(@PathVariable Integer id, UserEditBindingModel userBindingModel,
+                              @RequestParam("image") MultipartFile multipartFile) throws IOException {
 
         if(!this.userRepository.existsById(id)){
             return "redirect:/admin/users/";
@@ -94,6 +95,18 @@ public class AdminUserController {
         }
 
         user.setRoles(roles);
+
+        String fileName = StringUtils.cleanPath(multipartFile.getOriginalFilename());
+        String f = "";
+
+        if(!fileName.equals(f)) {
+            user.setPhoto(fileName);
+
+            this.userRepository.saveAndFlush(user);
+
+            String uploadDir = "user-photos/" + user.getId();
+            FileUploadUtil.saveFile(uploadDir, fileName, multipartFile);
+        }
 
         this.userRepository.saveAndFlush(user);
 

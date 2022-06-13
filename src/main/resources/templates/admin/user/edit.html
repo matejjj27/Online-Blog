@@ -1,16 +1,17 @@
 <main>
     <div class="form">
-        <form th:action="@{/admin/users/edit/{id}(id=${user.id})}" method="post"><br>
+        <form th:action="@{/admin/users/edit/{id}(id=${user.id})}" method="post" enctype="multipart/form-data"><br>
             <fieldset>
                 <legend>Edit User -
                     <strong th:text="${user.fullName}"></strong>
                 </legend>
                 <div class="log-form">
-                    <label class="label img" for="img">Profile Photo: </label>
-                    <div th:switch="${user.photo != null}">
-                        <img th:case="false" class="prof-img" id="img" src="/user-photos/default/3.jpg" height="25%" width="25%"/>
-                        <img th:case="true" class="prof-img" id="img1" th:src="${user.photosImagePath}" height="25%" width="25%"/>
+                    <div class="profile">
+                        <label  for="img">Profile Photo: </label>
+                        <a class="list-delete">Delete</a>
+                        <img class="prof-img" id="img" th:src="${user.photosImagePath}" height="25%" width="25%" style="display: block"/>
                     </div>
+
                     <input class="profile" id="photo" th:type="file" name="image" accept="image/jpeg, image/png, image/jpg"><br>
 
                     <label for="user_email">Email</label>
