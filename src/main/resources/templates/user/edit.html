@@ -1,4 +1,4 @@
-<main>
+<main xmlns="http://www.w3.org/1999/html">
     <div class="form">
         <form th:action="@{/edit/{id}(id=${user.id})}" method="post" enctype="multipart/form-data"><br>
             <fieldset>
@@ -8,8 +8,9 @@
                 <div class="log-form">
                     <div class="profile">
                         <label  for="img">Profile Photo: </label>
-                        <input type="checkbox" class="list-delete" th:checked="${user.photo.Delete()}">Delete</input>
+
                         <img class="prof-img" id="img" th:src="${user.photosImagePath}" height="25%" width="25%" style="display: block"/>
+
                     </div>
 
                     <input class="profile" id="photo" th:type="file" name="image" accept="image/jpeg, image/png, image/jpg"><br>
@@ -37,7 +38,7 @@
                     </div>
 
                     <a class="cancel" th:href="@{/profile}">Cancel</a>
-                    <input value="Edit" type="submit" class="sub-cre"/>
+                    <input value="Submit" type="submit" class="sub-cre"/>
                 </div>
             </fieldset><br>
         </form>
