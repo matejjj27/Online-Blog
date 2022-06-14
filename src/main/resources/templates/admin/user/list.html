@@ -8,6 +8,7 @@
                 <thead>
                 <tr>
                     <th class="table-id">#</th>
+                    <th class="table-img">Photo</th>
                     <th>Full Name</th>
                     <th>Email</th>
                     <th>Gender</th>
@@ -19,6 +20,9 @@
                     <th:block th:each="user : ${users}">
                         <tr th:class="${user.isAdmin() ? 'info' : null}">
                             <td th:text="${user.id}"></td>
+                            <td class="img" height="40" width="20">
+                                <img id="img1" th:src="${user.photosImagePath}"/>
+                            </td>
                             <td th:text="${user.fullName}"></td>
                             <td th:text="${user.email}"></td>
                             <td>
@@ -36,6 +40,7 @@
                     </th:block>
                 </tbody>
             </table>
+            <br>
         </div>
     </div>
 </main>

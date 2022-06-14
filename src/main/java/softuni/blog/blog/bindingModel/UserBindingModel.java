@@ -2,7 +2,6 @@ package softuni.blog.blog.bindingModel;
 
 import groovyjarjarantlr4.v4.runtime.misc.NotNull;
 
-import javax.swing.*;
 
 public class UserBindingModel {
 

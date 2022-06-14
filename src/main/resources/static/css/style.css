@@ -4,17 +4,26 @@ head, header {
 main {
     font-family: 'Dosis', sans-serif;
 }
-
-td{
-    padding-top: 8px;
-    padding-right: 8px;
-}
 th{
-    padding-right: 75px;
+    border: 1px solid darkgrey;
 }
-.table-id{
+td{
+    padding-top: 10px;
     padding-right: 15px;
+    padding-left: 15px;
+    border: 1px solid darkgrey;
 }
+td img{
+    margin-left: auto;
+    margin-right: auto;
+    height: 80%;
+}
+.table-id, .table-img{
+    padding-right: 0px;
+    padding-left: 0px;
+}
+
+
 .listing{
     background-color: aliceblue;
     text-align: center;
@@ -25,7 +34,8 @@ table.table{
     margin-right: auto;
     margin-left: auto;
     font-size: 110%;
-    text-align: left;
+    text-align: center;
+    border: 1px solid darkgrey;
 }
 
 ul {
@@ -108,6 +118,7 @@ footer {
 .form{
     padding-top: 50px;
     margin-bottom: 85px;
+    border-radius: 10px;
 }
 
 input[type=text],input[type=email], input[type=password], select, textarea {
@@ -167,6 +178,7 @@ input[type=submit], .cancel, .list-create, .list-tag{
     padding-bottom: 10px;
     margin-right: auto;
     margin-left: auto;
+    border-radius: 10px;
 }
 article{
     padding: 10px;
@@ -196,6 +208,7 @@ body main{
 fieldset {
     background-color: aliceblue;
     border: aliceblue;
+    border-radius: 10px;
 }
 legend{
     float: left;
@@ -224,8 +237,14 @@ legend{
     transform: rotate(-180deg);
 }
 
-.label, .label img{
+.label{
     display: block;
+}
+.img {
+
+}
+img{
+    border-radius: 10%;
 }
 
 
